@@ -2,9 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="./main.js"></script>
+    <script src="./node_modules/blockly/blockly_compressed.js"></script>
+    <script src="./node_modules/blockly/blocks_compressed.js"></script>
+    <script src="./node_modules/blockly/msg/js/en.js"></script>
+    <style type="text/css">
+      #game {
+        float: left;
+      }
+      #blockly {
+        width: 600px;
+        height: 400px;
+        float: left;
+      }
+    </style>
   </head>
   <body>
     <div id="game"></div>
+    <div id="blockly"></div>
+    <xml id="toolbox" style="display: none;">
+      <block type="controls_repeat_ext"></block>
+    </xml>
   </body>
+  <script src="./main.js"></script>
 </html>

@@ -36,3 +36,8 @@ window.gameController = new GameController({
 });
 
 gameController.loadLevel(level);
+
+Blockly.inject('blockly', {
+  toolbox: document.querySelector('#toolbox'),
+  media: './node_modules/blockly/media/',
+});
