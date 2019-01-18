@@ -20,6 +20,7 @@
   "homepage": "https://github.com/joshlory/blockly-demo#readme",
   "dependencies": {
     "@code-dot-org/craft": "^0.2.0",
+    "blockly": "github:google/blockly#1.20181219.0",
     "phaser": "^2.6.2"
   },
   "devDependencies": {
