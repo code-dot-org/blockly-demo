@@ -1,22 +1,28 @@
 window.Phaser = {};
 window.PIXI = require('../node_modules/phaser/build/pixi');
 window.p2 = require('../node_modules/phaser/build/p2');
-const Phaser = require('phaser');
+window.Phaser = require('phaser');
 const Sounds = require('../lib/sounds').default;
 const GameController = require('@code-dot-org/craft').GameController;
 
 const level = {
-  assetPacks: {
-    beforeLoad: ['allAssetsMinusPlayer', 'playerAlex', 'playerAgent'],
-    afterLoad: [],
-  },
   gridDimensions: [10, 10],
   fluffPlane: ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],
-  playerName: 'Alex',
-  playerStartPosition: [],
+  isAquaticLevel: true,
+  playerName: "SteveAquatic",
+  assetPacks: {
+    beforeLoad: ['aquaticIslandAssets', 'playerSteveAquatic'],
+    afterLoad: [],
+  },
+  groundPlane: ["water", "water", "water", "water", "water", "water", "water", "water", "water", "water", "water", "water", "sand", "sand", "water", "water", "water", "water", "water", "water", "water", "water", "sand", "sand", "sand", "water", "water", "water", "water", "water", "water", "sand", "sand", "sand", "sand", "planksOak", "planksOak", "water", "water", "water", "sand", "sand", "sand", "sand", "sand", "water", "water", "water", "water", "water", "sand", "sand", "sand", "sand", "sand", "sand", "water", "water", "water", "water", "sand", "sand", "sand", "sand", "sand", "sand", "water", "water", "water", "water", "water", "sand", "sand", "sand", "sand", "sand", "water", "water", "water", "water", "water", "water", "sand", "sand", "sand", "water", "water", "water", "water", "stone", "water", "water", "water", "water", "water", "water", "water", "stone", "water", "water"],
+  groundDecorationPlane: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "tallGrass", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "tallGrass", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  actionPlane: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "treeJungle", "", "boatChest", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+  playerStartPosition: [4, 7],
+  playerStartDirection: 0,
+  verificationFunction: verificationAPI => verificationAPI.isEntityAt("Player", [4, 5]),
 };
 
-const gameController = new GameController({
+window.gameController = new GameController({
   Phaser,
   containerId: 'game',
   assetRoot: 'assets/',
@@ -28,3 +34,5 @@ const gameController = new GameController({
     gameController.codeOrgAPI.startAttempt();
   },
 });
+
+gameController.loadLevel(level);
