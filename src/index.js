@@ -66,7 +66,16 @@ Blockly.JavaScript.move_forward = function (block) {
   return 'gameController.codeOrgAPI.moveForward();';
 };
 
-Blockly.inject('blockly', {
+const workspace = Blockly.inject('blockly', {
   toolbox: document.querySelector('#toolbox'),
   media: './node_modules/blockly/media/',
+});
+
+// Don't codegen for unattached blocks.
+workspace.addChangeListener(Blockly.Events.disableOrphans);
+
+document.querySelector('#run').addEventListener('click', () => {
+  gameController.codeOrgAPI.resetAttempt();
+  gameController.codeOrgAPI.startAttempt();
+  eval(Blockly.JavaScript.workspaceToCode(Blockly.mainWorkspace));
 });
