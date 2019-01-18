@@ -58,6 +58,14 @@ Blockly.Blocks.move_forward = {
   },
 };
 
+Blockly.JavaScript.when_run = function (block) {
+  return '';
+};
+
+Blockly.JavaScript.move_forward = function (block) {
+  return 'gameController.codeOrgAPI.moveForward();';
+};
+
 Blockly.inject('blockly', {
   toolbox: document.querySelector('#toolbox'),
   media: './node_modules/blockly/media/',
