@@ -37,6 +37,27 @@ window.gameController = new GameController({
 
 gameController.loadLevel(level);
 
+Blockly.Blocks.when_run = {
+  init: function () {
+    this.jsonInit({
+      message0: 'when run',
+      nextStatement: null,
+      colour: '#fda400',
+    });
+  },
+};
+
+Blockly.Blocks.move_forward = {
+  init: function () {
+    this.jsonInit({
+      message0: 'move forward',
+      previousStatement: null,
+      nextStatement: null,
+      colour: '#00b0bd',
+    });
+  },
+};
+
 Blockly.inject('blockly', {
   toolbox: document.querySelector('#toolbox'),
   media: './node_modules/blockly/media/',
