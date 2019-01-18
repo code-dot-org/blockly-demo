@@ -58,6 +58,17 @@ Blockly.Blocks.move_forward = {
   },
 };
 
+Blockly.Blocks.turn_left = {
+  init: function () {
+    this.jsonInit({
+      message0: 'turn left',
+      previousStatement: null,
+      nextStatement: null,
+      colour: '#00b0bd',
+    });
+  },
+};
+
 Blockly.JavaScript.when_run = function (block) {
   return '';
 };
@@ -65,6 +76,10 @@ Blockly.JavaScript.when_run = function (block) {
 Blockly.JavaScript.move_forward = function (block) {
   return 'gameController.codeOrgAPI.moveForward();';
 };
+
+Blockly.JavaScript.turn_left = function (block) {
+  return 'gameController.codeOrgAPI.turnLeft();'
+}
 
 const workspace = Blockly.inject('blockly', {
   toolbox: document.querySelector('#toolbox'),
