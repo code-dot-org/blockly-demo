@@ -9,11 +9,19 @@
   <style>
     body {
       background-color: #444;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <div id="blocklyDiv" style="height: 400px; width: 500px;"></div>
+  This is some text before the block
+    <div id="blocklyDiv" style="height: 400px; width: 500px; display: inline-block;"></div>
+  and this is some text after the block
+  <xml id="smallBlock" style="display: none">
+    <block type="math_number">
+      <field name="NUM">12345</field>
+    </block>
+  </xml>
   <xml id="startBlocks" style="display: none">
     <block type="controls_if" inline="false" x="20" y="20">
       <mutation else="1"></mutation>
@@ -58,7 +66,7 @@
         {media: '../../media/',
          readOnly: true});
 
-    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+    Blockly.Xml.domToWorkspace(document.getElementById('smallBlock'),
                                demoWorkspace);
     const boundingBox = Blockly.getMainWorkspace().getBlocksBoundingBox();
     document.getElementById('blocklyDiv').style.height=(boundingBox.height) + "px";
